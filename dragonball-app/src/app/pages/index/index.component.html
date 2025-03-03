@@ -1,0 +1,21 @@
+<div class="row px-5 py-3">
+    <div class="d-flex justify-content-end align-items-center">
+        <div class="col-10 d-flex align-items-center gap-2">
+            <img src="escudo.webp" class="logo-index">
+            <h5 class="m-0">Dragon ball </h5>
+        </div>
+        <div class="input-group input-group-sm ">
+            <input type="text" id="search" required class="form-control " placeholder="Buscar personaje">
+            <button class="btn btn-outline-primary" type="button" (click)="searchCharacter()">
+                <app-box-icon [iconClass]="'bx bx-search'" />
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        @for (item of items; track $index) {
+        <div class="col-2 p-3">
+            <app-character [character]="item" />
+        </div>
+        }
+    </div>
+</div>

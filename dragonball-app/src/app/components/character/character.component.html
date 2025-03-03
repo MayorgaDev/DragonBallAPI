@@ -1,0 +1,18 @@
+<div class="custom-card row">
+    <div class="d-flex justify-content-end">
+        <div class="btn-favorite">
+            <app-box-icon [iconClass]="'bx bx-heart'" />
+        </div>
+    </div>
+    <div class="col-12">
+        <img [src]="character.image" class="img-character img-fluid d-block mx-auto" alt="Imagen de {{character.name}}">
+    </div>
+    <p class="text-center info-name my-3">
+        {{character.name}}
+        <br>
+        <span class="info-race">
+            {{ character.race}}
+        </span>
+    </p>
+    <button type="button" class="btn btn-sm btn-primary col-12" (click)="viewDetails(character.id)">Ver detalles</button>
+</div>
