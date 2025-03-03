@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+:root {
+    --bg-primary: #252422;
+    --bg-secondary: #ccc5b9;
+    --primary-color: #eb5e28;
+    --bg-primary-color: #eb5f2879;
+    --secondary-color: #00509d;
+    --text-color: #f0ebd8;
+    --bg-card: #3f3f3f79;
+    --border-radius-card: 10px;
+    --border-card: #3f3f3f79;
+    --padding-card: 15px;
+
+    --bs-btn-bg: var(var(--primary-color)) !important;
+}
+
+
+
+body {
+    background: var(--bg-primary);
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+.custom-card {
+    padding: var(--padding-card);
+    background: var(--bg-card); 
+    color: var(--text-color);
+    border-radius: var(--border-radius-card);
+    backdrop-filter: var(--blur-card);
+    border: var(--border-card);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color:  var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-color);
+    border-color:  var(--secondary-color);
+}
+
+.btn-outline-primary {
+    background: var(--primary-color);
+    border-color:  var(--primary-color);
+    color: var(--text-color)
+}
+
+.btn-outline-primary:hover {
+    background: var(--secondary-color);
+    border-color:  var(--secondary-color);
+    color: var(--text-color)
+}
+
+.form-control {
+    background: #3a3a39;
+    border-color: #3a3a39;
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    background: #494949;
+    border-color: var(--primary-color);
+    box-shadow: none;
+    color: var(--text-color);
+}
+
+.txt-sm {
+    font-size: 13px;
+}
+.bt {
+    border: solid yellow 2px;
+}
+
+.legend {
+    color: var(--text-color);
+    font-size: small        ;
+}
+
+a {
+    font-size: 13px;
+    color: var(--primary-color);
+}
+
+
+.login-container {
+    width: 100%;
+    max-width: 900px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 80%;
+  }
+  
+  .login-left {
+    border: none;
+  }
+  
+  .login-right {
+    padding: 30px;
+  }
+  
+  
+  .logo-login {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  .logo-index {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  
+  .lg-img {
+    width: 100%;
+    height: 700px;
+    border-radius: 16px;
+  }
+  
+  .container-view {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
