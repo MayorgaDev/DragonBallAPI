@@ -1,3 +1,53 @@
 :host {
   display: block;
 }
+
+.img-transformation {
+  height: 400px;
+}
+
+.img-character {
+  height: calc(100vh - 100px);
+}
+
+.transformations {
+  overflow-x: scroll;
+  max-width: 98%;
+}
+
+.badge-primary {
+  background: var(--bg-primary-color);
+  color: var(--text-color);
+  font-size: 0.8rem;
+}
+
+.badge-primary:hover {
+  background: var(--secondary-color);
+  cursor: pointer;
+}
+
+.option-buttons {
+  position: fixed;
+  right: 10px;
+  /* 
+  top: 35px; */
+}
+
+.btn-favorite {
+  border-radius: 50%;
+  padding: 8px;
+  font-size: 30px;
+  text-align: center;
+  color: var(--text-color);
+  height: 52px;
+  width: 52px;
+  background: var(--bg-primary-color);
+}
+
+.btn-favorite:hover {
+  background: var(--secondary-color);
+}
+
+.btn-favorite.is-favorite {
+  background: var(--secondary-color);
+}

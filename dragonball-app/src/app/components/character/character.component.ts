@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class CharacterComponent {
 
+  isFavorite: boolean = false;
+  favorites: number[] = [];
+  key: string = 'favorites';
   constructor(private route: Router) { }
 
   @Input() character!: CharacterInterface;
@@ -19,5 +22,20 @@ export class CharacterComponent {
   viewDetails(id: number) {
     console.log(id)
     this.route.navigate([`/detail/${id}`])
+  }
+
+  addFavorites(id: number) {
+    if (id !== null) {
+      this.isFavorite = true;
+      const favs = localStorage.getItem(this.key);
+      this.favorites = favs ? JSON.parse(favs) : [];
+
+      const i = this.favorites.findIndex((i) => i == id)
+      i >= 0
+        ? this.favorites.splice(i, 1)
+        : this.favorites.push(id);
+
+      localStorage.setItem(this.key, JSON.stringify(this.favorites));
+    }
   }
 }

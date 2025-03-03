@@ -1,1 +1,46 @@
-<p>{{character?.name}}</p>
+<div class="row px-5 py-2">
+    <div class="custom-card row">
+
+        <div class="col-3">
+            <img [src]="character?.image" [alt]="character?.name" class="d-block mx-auto img-fluid img-character ">
+        </div>
+        <div class="col-9">
+            <h2 class="d-flex justify-content-between">
+                <span>{{character?.name}}</span>
+                <div class="d-flex gap-2">
+                    <div class="btn-favorite">
+                        <app-box-icon [iconClass]="'bx bx-heart'" />
+                    </div>
+                    <div class="btn-favorite" (click)="goToBack()">
+                        <app-box-icon [iconClass]="'bx bx-arrow-back'" />
+                    </div>
+                </div>
+            </h2>
+            <section class="row">
+                <div class="d-flex gap-2 mb-3">
+                    <span class="badge badge-primary">Genero: {{character?.gender}}</span>
+                    <span class="badge badge-primary">Generación: {{character?.affiliation}}</span>
+                    <span class="badge badge-primary">Ki Base: {{character?.ki}}</span>
+                    <span class="badge badge-primary">Ki Maximo: {{character?.maxKi}}</span>
+                    <span class="badge badge-primary">Planeta Origen: {{character?.originPlanet?.name}}</span>
+                    <span class="badge badge-primary">Destruido: {{character?.originPlanet?.isDestroyed ? 'No'
+                        :'Si'}}</span>
+                </div>
+                <h5 class="mb-3">Descripción</h5>
+                <p class="col-12">{{character?.description}}</p>
+                @if(character?.transformations?.length) {
+                <h5 class="mb-3">Transformaciones</h5>
+                <div class="d-flex transformations gap-3">
+                    @for (item of character?.transformations; track $index) {
+                    <div class="col-3 custom-card text-center mb-4">
+                        <img [src]="item.image" [alt]="item.name" class="img-fluid img-transformation d-block mx-auto">
+                        <h6> {{item.name}}</h6>
+                        <small>Ki: {{item.ki}}</small>
+                    </div>
+                    }
+                </div>
+                }
+            </section>
+        </div>
+    </div>
+</div>

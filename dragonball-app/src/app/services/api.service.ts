@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   private serverAPI = 'http://localhost:3000';
-  private dragonBallAPI = 'https://www.dragonball-api.com/api';
+  private dragonBallAPI = 'https://dragonball-api.com/api';
 
   login(data: Credentials): Observable<Account> {
     return this.http.post<Account>(this.serverAPI + '/login', data);
