@@ -26,6 +26,11 @@
         }
     </div>
     <button type="button" class="btn btn-sm btn-primary col-12" (click)="onSubmit()">Acceder</button>
+    @if(errorMessage != ''){
+        <div class="text-danger mt-3 txt-sm">
+            <p class="mb-0 text-center">{{errorMessage}}</p>
+        </div>
+    }
 </form>
 
 <div class="d-flex flex-column text-center mt-3">

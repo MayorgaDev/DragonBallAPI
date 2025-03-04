@@ -41,8 +41,8 @@ export class FormLoginComponent {
       })
         .pipe(
           catchError((error) => {
-            if (error.status === 400) {
-              this.errorMessage = error.error.message;
+            if (error.status === 403) {
+             this.errorMessage = error.error.message;
             }
 
             return of(null);

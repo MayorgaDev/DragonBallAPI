@@ -16,13 +16,13 @@ export const routes: Routes = [
         path: 'index',
         loadComponent: () =>
             import('./pages/index/index.component').then((m) => m.IndexComponent),
-        // canActivate: [authGuard],
+        canActivate: [authGuard],
     },
     {
         path: 'detail/:id',
         loadComponent: () =>
             import('./pages/details/details.component').then((m) => m.DetailsComponent),
-        // canActivate: [authGuard],
+        canActivate: [authGuard],
     },
     {
         path: 'not-found',
