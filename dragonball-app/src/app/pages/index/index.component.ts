@@ -5,64 +5,41 @@ import { CharacterInterface } from 'app/interfaces/character.interface';
 import { ApiService } from '@services/api.service';
 import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
-
+import { AuthsessionService } from '@services/authsession.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-index',
-  imports: [IconComponent, CharacterComponent],
+  imports: [IconComponent, CharacterComponent, FormsModule],
   templateUrl: './index.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class IndexComponent {
 
-  items: CharacterInterface[] = [
-    {
-      "id": 13,
-      "name": "Yamcha",
-      "race": "Human",
-      "gender": "Male",
-      "image": "https://dragonball-api.com/characters/Final_Yamcha.webp",
-    },
-    {
-      "id": 14,
-      "name": "Chi-Chi",
-      "race": "Human",
-      "gender": "Female",
-      "image": "https://dragonball-api.com/characters/ChiChi_DBS.webp",
-    },
-    {
-      "id": 15,
-      "name": "Gotenks",
-      "race": "Saiyan",
-      "gender": "Male",
-      "image": "https://dragonball-api.com/characters/Gotenks_Artwork.webp",
-    },
-    {
-      "id": 16,
-      "name": "Trunks",
-      "race": "Saiyan",
-      "gender": "Male",
-      "image": "https://dragonball-api.com/characters/Trunks_Buu_Artwork.webp",
-    }
+  items: CharacterInterface[] = []
 
-  ]
-
-  constructor(private api: ApiService, private route: Router) { }
-
-  searchCharacter = () => {
-    console.log('searchs')
+  search: string = '';
+  constructor(private api: ApiService, private route: Router, private session: AuthsessionService) { 
+    this.searchCharacters()
   }
 
-  search(name: string) {
-    this.api.searchCharacter(name).pipe(
+  searchCharacters() {
+    this.api.searchCharacter(this.search).pipe(
       catchError(() => {
         return of(null);
       }),
     )
       .subscribe((res) => {
-        if (res) {
-          this.items = res
-        }
+        if (res) this.items = res
       });
+  }
+
+  goToFavorites() {
+    this.route.navigate(['/favorites'])
+  }
+
+  logout() {
+    this.session.deleteToken();
+    this.route.navigate(['/']);
   }
 }

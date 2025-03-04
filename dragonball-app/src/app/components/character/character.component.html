@@ -1,6 +1,6 @@
 <div class="custom-card row">
     <div class="d-flex justify-content-end">
-        <div [className]="isFavorite ? 'btn-favorite is-favorite' : 'btn-favorite'" (click)="addFavorites(character.id)">
+        <div [className]="isFavorite || character.favorite ? 'btn-favorite is-favorite' : 'btn-favorite'" (click)="addFavorites(character)">
             <app-box-icon [iconClass]="'bx bx-heart'" />
         </div>
     </div>

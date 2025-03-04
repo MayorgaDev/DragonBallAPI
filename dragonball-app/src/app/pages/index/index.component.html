@@ -3,12 +3,14 @@
         <div class="col-10 d-flex align-items-center gap-2">
             <img src="escudo.webp" class="logo-index"  >
             <h5 class="m-0">Dragon ball </h5>
-            <button class="btn btn-outline-primary">Favoritos</button>
+            <button class="btn btn-outline-primary" (click)="goToFavorites()">Favoritos</button>
             <button class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#logout">Salir</button>
         </div>
         <div class="input-group input-group-sm ">
-            <input type="text" id="search" required class="form-control " placeholder="Buscar personaje">
-            <button class="btn btn-outline-primary" type="button" (click)="searchCharacter()">
+            <input [(ngModel)]= "search" type="text" id="search" required class="form-control text-white" 
+               placeholder="Buscar personaje"
+               (keyup.enter)="searchCharacters()">
+            <button class="btn btn-outline-primary" type="button" (click)="searchCharacters()">
                 <app-box-icon [iconClass]="'bx bx-search'" />
             </button>
         </div>

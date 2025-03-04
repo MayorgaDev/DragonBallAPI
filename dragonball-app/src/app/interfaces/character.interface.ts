@@ -4,6 +4,7 @@ export interface CharacterInterface {
     race: string
     gender: string
     image: string
+    favorite: boolean
 }
 
 
@@ -34,5 +35,6 @@ export interface CharacterDetailsInterface {
     affiliation: string,
     deletedAt: null,
     originPlanet: originPlanetInterface,
-    transformations: transformationsInterface[]
+    transformations: transformationsInterface[],
+    favorite: boolean
 }

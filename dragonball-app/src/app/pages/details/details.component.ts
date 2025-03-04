@@ -5,6 +5,7 @@ import { ApiService } from '@services/api.service';
 import { CharacterDetailsInterface } from 'app/interfaces/character.interface';
 import { catchError, of } from 'rxjs';
 import { Location } from '@angular/common';
+import { localStorageService } from '@services/localstorage.service';
 
 @Component({
   selector: 'app-details',
@@ -17,8 +18,9 @@ export class DetailsComponent implements OnInit {
 
   @Input() id: number | undefined
 
+  isFavorite: boolean = false
   character?: CharacterDetailsInterface
-  constructor(private api: ApiService, private route: Router, private location: Location) { }
+  constructor(private api: ApiService, private route: Router, private location: Location, private storage: localStorageService) {}
 
   ngOnInit(): void {
     if (this.id == null || isNaN(this.id)) this.route.navigate(['..'])
@@ -33,12 +35,18 @@ export class DetailsComponent implements OnInit {
       }),
     )
       .subscribe((res) => {
-        if (res) this.character = {...res}
+        this.isFavorite = this.storage.isFavorite(id)
+        if (res) this.character = {...res, favorite: this.storage.isFavorite(id)}
       });
   }
 
   goToBack(){
     this.location.back();
+  }
+
+  addFavorites(character: CharacterDetailsInterface){
+    this.isFavorite = true
+    this.storage.setFavorite = {...character}
   }
 
 }

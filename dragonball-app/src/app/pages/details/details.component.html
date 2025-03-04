@@ -8,7 +8,8 @@
             <h2 class="d-flex justify-content-between">
                 <span>{{character?.name}}</span>
                 <div class="d-flex gap-2">
-                    <div class="btn-favorite">
+                    <div [className]="isFavorite || character?.favorite ? 'btn-favorite is-favorite' : 'btn-favorite'"
+                    (click)="addFavorites(character!)">
                         <app-box-icon [iconClass]="'bx bx-heart'" />
                     </div>
                     <div class="btn-favorite" (click)="goToBack()">
