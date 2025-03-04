@@ -7,12 +7,20 @@ export class AuthsessionService {
 
   private token: string | undefined
 
-  constructor() { }
+  constructor() { 
+    this.token = localStorage.getItem('token') ?? undefined;
+  }
 
   get isAuto(): boolean { return !!this.token };
 
   set setToken(token: string) {
     this.token = token;
+    localStorage.setItem('token', token);
+  };
+  
+  deleteToken() {
+    this.token = undefined;
+    localStorage.removeItem('token');
   };
 
 }

@@ -130,3 +130,15 @@ a {
     justify-content: center;
   }
   
+  .modal-content {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-color);
+  }
+
+  .modal-header {
+    border: none !important;
+  }
+
+  .modal-footer {
+    border: none !important;
+  }

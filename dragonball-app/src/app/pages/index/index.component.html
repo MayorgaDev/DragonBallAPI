@@ -1,8 +1,10 @@
 <div class="row px-5 py-3">
     <div class="d-flex justify-content-end align-items-center">
         <div class="col-10 d-flex align-items-center gap-2">
-            <img src="escudo.webp" class="logo-index">
+            <img src="escudo.webp" class="logo-index"  >
             <h5 class="m-0">Dragon ball </h5>
+            <button class="btn btn-outline-primary">Favoritos</button>
+            <button class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#logout">Salir</button>
         </div>
         <div class="input-group input-group-sm ">
             <input type="text" id="search" required class="form-control " placeholder="Buscar personaje">
@@ -19,3 +21,21 @@
         }
     </div>
 </div>
+
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="mb-0">¿Seguro que deseas salir?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary mx-auto" data-bs-dismiss="modal" (click)="logout()">Si, salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
